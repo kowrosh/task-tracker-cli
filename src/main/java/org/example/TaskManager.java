@@ -4,6 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskManager {
+    public TaskManager() {
+        this.tasks = new ArrayList<>();
+        this.nextId = 1;
+    }
+
+    public TaskManager(List<Task> tasks) {
+        this.tasks = tasks;
+
+        int maxId = 0;
+
+        for (Task task : tasks) {
+            if (task.getId() > maxId) {
+                maxId = task.getId();
+            }
+        }
+
+        this.nextId = maxId + 1;
+    }
     private List<Task> tasks = new ArrayList<>();
     private int nextId = 1;
 

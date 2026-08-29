@@ -1,9 +1,17 @@
 package org.example;
 
+import java.util.List;
+import java.io.File;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        TaskManager manager = new TaskManager();
+        TaskFileStorage storage = new TaskFileStorage();
+
+        List<Task> loadedTasks = storage.loadTasks();
+
+        TaskManager manager = new TaskManager(loadedTasks);
 
         if (args.length > 0) {
             switch (args[0]) {
@@ -63,7 +71,9 @@ public class Main {
             }
 
 
-
         }
+        storage.saveTasks(manager.getAllTasks());
+
+
 
 }}

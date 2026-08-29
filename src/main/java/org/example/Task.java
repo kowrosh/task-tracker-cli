@@ -1,7 +1,8 @@
 package org.example;
 
 import java.time.LocalDateTime;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 public class Task {
 
 
@@ -17,6 +18,20 @@ public class Task {
         this.status = TaskStatus.TODO;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
+    }
+    @JsonCreator
+    public Task(
+            @JsonProperty("id") int id,
+            @JsonProperty("description") String description,
+            @JsonProperty("status") TaskStatus status,
+            @JsonProperty("createdAt") LocalDateTime createdAt,
+            @JsonProperty("updatedAt") LocalDateTime updatedAt
+    ) {
+        this.id = id;
+        this.description = description;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
