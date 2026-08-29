@@ -37,4 +37,29 @@ public class TaskManager {
             System.out.println("Task with ID " + id + " not found.");
         }
     }
+    public void markInProgress(int id){
+        Task task =findTaskById(id);
+        if(task != null){
+            task.setStatus(TaskStatus.IN_PROGRESS);
+        }
+    }
+    public void markDone(int id){
+        Task task = findTaskById(id);
+        if(task != null){
+            task.setStatus(TaskStatus.DONE);
+        }
+    }
+
+    public List<Task> getTasksByStatus(TaskStatus status) {
+        List<Task> filteredTasks = new ArrayList<>();
+
+        for (Task task : this.tasks) {
+            if (task.getStatus() == status) {
+                filteredTasks.add(task);
+            }
+        }
+
+        return filteredTasks;
+    }
+
 }

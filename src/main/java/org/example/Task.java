@@ -8,7 +8,7 @@ public class Task {
     private  int id;
     private  String description;
     private TaskStatus status;
-    private LocalDateTime createdAt;
+    private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public Task(int id, String description) {

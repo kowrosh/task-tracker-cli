@@ -5,15 +5,14 @@ public class Main {
 
         TaskManager manager = new TaskManager();
 
-        manager.addTask("Learning");
+        manager.addTask("Java");
         manager.addTask("Gaming");
         manager.addTask("Coding");
 
-        manager.updateTask(2, "Play Minecraft");
-        manager.deleteTask(1);
+        manager.markDone(1);
+        manager.markInProgress(2);
 
-        for (Task task : manager.getAllTasks()) {
-            System.out.println(task);
-        }
-    }
-}
+        System.out.println(manager.getTasksByStatus(TaskStatus.DONE));
+        System.out.println(manager.getTasksByStatus(TaskStatus.IN_PROGRESS));
+        System.out.println(manager.getTasksByStatus(TaskStatus.TODO));
+}}
