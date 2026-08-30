@@ -40,32 +40,26 @@ public class TaskManager {
                 return task;
             }
         }
-        return null;
+        throw new TaskNotFoundException(id);
     }
     public void updateTask(int id, String description){
         Task task = findTaskById(id);
-        if(task != null){
-            task.setDescription(description);
-        }
+        task.setDescription(description);
     }
     public void deleteTask(int id) {
         boolean removed = tasks.removeIf(task -> task.getId() == id);
 
         if (!removed) {
-            System.out.println("Task with ID " + id + " not found.");
+            throw new TaskNotFoundException(id);
         }
     }
     public void markInProgress(int id){
         Task task =findTaskById(id);
-        if(task != null){
-            task.setStatus(TaskStatus.IN_PROGRESS);
-        }
+        task.setStatus(TaskStatus.IN_PROGRESS);
     }
     public void markDone(int id){
         Task task = findTaskById(id);
-        if(task != null){
-            task.setStatus(TaskStatus.DONE);
-        }
+        task.setStatus(TaskStatus.DONE);
     }
 
     public List<Task> getTasksByStatus(TaskStatus status) {
