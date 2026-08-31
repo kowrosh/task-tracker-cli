@@ -2,41 +2,29 @@
 
 A command-line task manager built with Java.
 
+The application allows users to create, update, delete, and track tasks directly from the command line. Tasks are persisted in a JSON file so they remain available between program runs.
+
 ## Features
 
-- Add tasks
+- Add new tasks
 - Update task descriptions
 - Delete tasks
-- Mark tasks as in progress or done
+- Mark tasks as in progress
+- Mark tasks as done
 - List all tasks
 - Filter tasks by status
-- JSON persistence between program runs
-- Error handling for invalid IDs and commands
+- Store tasks in JSON
+- Automatically restore saved tasks
+- Handle invalid commands and IDs
 
-## Tech Stack
+## Technologies
 
 - Java 20
 - Maven
 - Jackson
 - Jackson Java Time Module
 
-## Commands
-
-| Command | Description |
-| --- | --- |
-| `add "description"` | Add a task |
-| `update <id> "description"` | Update a task |
-| `delete <id>` | Delete a task |
-| `mark-in-progress <id>` | Mark task as in progress |
-| `mark-done <id>` | Mark task as done |
-| `list` | List all tasks |
-| `list todo` | List TODO tasks |
-| `list in-progress` | List in-progress tasks |
-| `list done` | List completed tasks |
-
-## Persistence
-
-Tasks are stored in `tasks.json`.
+## Task Model
 
 Each task contains:
 
@@ -48,11 +36,7 @@ Each task contains:
 
 Available statuses:
 
-- `TODO`
-- `IN_PROGRESS`
-- `DONE`
-
-## Build
-
-```bash
-mvn clean package
+```text
+TODO
+IN_PROGRESS
+DONE

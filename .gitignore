@@ -26,6 +26,3 @@ tasks.json
 # JVM crash logs
 hs_err_pid*
 replay_pid*
-dependency-reduced-pom.xml
-task.json
-tasks.json
